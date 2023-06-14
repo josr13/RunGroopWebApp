@@ -26,5 +26,10 @@ namespace RunGroopWebApp.Controllers
             Club club = await _clubRepository.GetByIdAsync(id);
             return View(club);
         }
+
+        public IActionResult Create() //Puede ser async, aunque no necesario
+        {
+            return View();
+        }
     }
 }
