@@ -13,6 +13,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+var cloudinaryCloudName = builder.Configuration["CloudinarySettings:CloudName"];
+var cloudinaryApiKey = builder.Configuration["CloudinarySettings:ApiKey"];
+var cloudinaryApiSecret = builder.Configuration["CloudinarySettings:ApiSecret"];
 
 var app = builder.Build();
 
