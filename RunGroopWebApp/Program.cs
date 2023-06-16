@@ -18,6 +18,7 @@ var cloudinaryCloudName = builder.Configuration["CloudinarySettings:CloudName"];
 var cloudinaryApiKey = builder.Configuration["CloudinarySettings:ApiKey"];
 var cloudinaryApiSecret = builder.Configuration["CloudinarySettings:ApiSecret"];
 var cloudinaryConfig = builder.Configuration.GetSection("CloudinarySettings").Get<CloudinarySettings>();
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
 var app = builder.Build();
 
