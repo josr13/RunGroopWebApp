@@ -3,6 +3,7 @@ using RunGroopWebApp.Data;
 using RunGroopWebApp.Helpers;
 using RunGroopWebApp.Interfaces;
 using RunGroopWebApp.Repository;
+using RunGroopWebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,7 @@ var cloudinaryCloudName = builder.Configuration["CloudinarySettings:CloudName"];
 var cloudinaryApiKey = builder.Configuration["CloudinarySettings:ApiKey"];
 var cloudinaryApiSecret = builder.Configuration["CloudinarySettings:ApiSecret"];
 var cloudinaryConfig = builder.Configuration.GetSection("CloudinarySettings").Get<CloudinarySettings>();
+builder.Services.AddScoped<IPhotoService, PhotoService>();
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
 var app = builder.Build();
