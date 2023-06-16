@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using RunGroopWebApp.Data;
+using RunGroopWebApp.Helpers;
 using RunGroopWebApp.Interfaces;
 using RunGroopWebApp.Repository;
 
@@ -16,6 +17,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 var cloudinaryCloudName = builder.Configuration["CloudinarySettings:CloudName"];
 var cloudinaryApiKey = builder.Configuration["CloudinarySettings:ApiKey"];
 var cloudinaryApiSecret = builder.Configuration["CloudinarySettings:ApiSecret"];
+var cloudinaryConfig = builder.Configuration.GetSection("CloudinarySettings").Get<CloudinarySettings>();
 
 var app = builder.Build();
 
