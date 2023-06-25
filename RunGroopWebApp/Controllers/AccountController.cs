@@ -40,7 +40,7 @@ namespace RunGroopWebApp.Controllers
                     var result = await _signInManager.PasswordSignInAsync(user, loginViewModel.Password, false, false);
                     if (result.Succeeded)
                     {
-                        return RedirectToAction("Index", "Race");
+                        return RedirectToAction("Index", "Home");
                     }
                 }
                 //Password incorrecta
